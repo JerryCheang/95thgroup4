@@ -45,6 +45,44 @@ main {
   border-bottom: 1px solid #d2e2d6;
 }
 
+.topbar-back-row {
+  width: min(1120px, 96vw);
+  margin: 0 auto;
+  padding: 10px 0 0;
+}
+
+.back-home-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 90px;
+  text-decoration: none;
+  color: #204335;
+  border: 1px solid #c8dacc;
+  background: linear-gradient(180deg, #fefefe, #f4fbf7);
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 8px 20px rgba(20, 51, 42, 0.08);
+  transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease, background 0.16s ease, color 0.16s ease;
+}
+
+.back-home-btn:hover,
+.back-home-btn:focus-visible {
+  background: linear-gradient(180deg, #3a9b6e, #267b54);
+  border-color: #1f6d49;
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(33, 88, 62, 0.26);
+  transform: translateY(-1px);
+}
+
+.back-home-btn:focus-visible {
+  outline: 2px solid #3a9b6e;
+  outline-offset: 2px;
+}
+
 .nav {
   width: min(1120px, 96vw);
   margin: 8px auto;
@@ -592,6 +630,44 @@ th {
   cursor: pointer;
 }
 
+.scroll-top-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1500;
+  width: 52px;
+  height: 52px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #3a9b6e, #267b54);
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 12px 28px rgba(31, 109, 73, 0.28);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.16s ease;
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.scroll-top-btn:hover,
+.scroll-top-btn:focus-visible {
+  box-shadow: 0 16px 32px rgba(31, 109, 73, 0.34);
+}
+
+.scroll-top-btn:focus-visible {
+  outline: 2px solid #3a9b6e;
+  outline-offset: 3px;
+}
+
 @media (max-width: 900px) {
   .hero,
   .cards.two,
@@ -609,6 +685,16 @@ th {
     margin: 6px auto;
     padding: 8px 10px;
     border-radius: 12px;
+  }
+
+  .topbar-back-row {
+    padding-top: 8px;
+  }
+
+  .back-home-btn {
+    min-width: 78px;
+    padding: 9px 14px;
+    font-size: 0.88rem;
   }
 
   .nav a {
@@ -646,5 +732,12 @@ th {
 
   .feature-split {
     grid-template-columns: 1fr;
+  }
+
+  .scroll-top-btn {
+    right: 16px;
+    bottom: 16px;
+    width: 48px;
+    height: 48px;
   }
 }

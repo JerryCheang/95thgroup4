@@ -1,6 +1,7 @@
 (() => {
   const navLinks = document.querySelectorAll(".nav a");
   const sections = document.querySelectorAll("main .section");
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
 
   function onScroll() {
     const y = window.scrollY || document.documentElement.scrollTop;
@@ -21,6 +22,10 @@
         link.classList.remove("active");
       }
     });
+
+    if (scrollTopBtn) {
+      scrollTopBtn.classList.toggle("visible", y > 240);
+    }
   }
 
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -71,7 +76,7 @@
     lightboxClose.className = "lightbox-close";
     lightboxClose.type = "button";
     lightboxClose.setAttribute("aria-label", "Close image");
-    lightboxClose.textContent = "×";
+    lightboxClose.textContent = "x";
 
     lightboxImage = document.createElement("img");
     lightboxImage.id = "lightboxImage";
@@ -118,4 +123,13 @@
       closeLightbox();
     }
   });
+
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
 })();
